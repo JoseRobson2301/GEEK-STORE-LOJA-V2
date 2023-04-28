@@ -2,10 +2,12 @@
     cursor: url(./amon\ gus.cur), pointer;
     font-family: 'Inter';
 }
-
+html {
+	scroll-behavior: smooth;
+}
 body {
     margin: 0;
-    background-color: #94c5a5;
+    background-color: rgb(12, 12, 12);
 }
 
 header {
@@ -42,7 +44,8 @@ nav a {
     text-decoration: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     cursor: pointer;
-	transition:.3s linear;
+	transition:.2s linear;
+	cursor: url(./cursor-heath.cur), pointer;
 }
 nav a:hover {
 	transform: translate(10px, 0px);
@@ -63,7 +66,7 @@ ul {
 li {
 	margin: 20px;
 	flex-basis: calc(33.33% - 40px);
-	background-color: #0dd55908;
+	background-color: #e6e6e6;
 	padding: 20px;
 	border-radius: 5px;
 	box-shadow: 0 0 10px rgba(0,0,0,.2);
@@ -95,6 +98,7 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color .3s;
+	cursor: url(./cursor-head.cur), pointer;
 }
 button:hover {
     background-color: #35c035;
@@ -105,11 +109,6 @@ footer {
     color: #fff;
     padding: 20px;
     text-align: center;
-}
-
-.alert {
-	background-color: #00FF00;
-	color: white;
 }
 
 @keyframes --cor--de--animacao {
@@ -141,3 +140,11 @@ footer {
 seletor {
     cursor: url(./amon\ gus.cur);
 } 
+
+seletor button {
+	cursor: url(./cursor-head.cur);
+}
+
+seletor a {
+	cursor: url(./cursor-heath.cur);
+}

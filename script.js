@@ -3,7 +3,20 @@ for (var i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener('click', function() {
     var productId = this.getAttribute('data-product-id');
     addToCart(productId);
-    swal("OBRIGADO GEEKS", "PRODUTO ADICIONADO COM SUCESSO", "success");;
+    swal.fire({
+      title: 'DESEJA ADICIONAR NO CARRINHO?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'SIM',
+      denyButtonText: `NÃO`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('PRODUTO ADICIONADO!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('PRODUTO NÃO ADICIONADO', '', 'warning')
+        
+      }
+    })
   });
 }
 
@@ -40,3 +53,25 @@ function getCart() {
 function saveCart(cart) {
   document.cookie = 'cart=' + JSON.stringify(cart);
 }
+
+
+const links = document.querySelectorAll('a');
+
+links.forEach(link => {
+  if (link.getAttribute('href')) {
+    const notification = document.createElement('span');
+    notification.classList.add('notification');
+    link.appendChild(notification);
+  }
+});
+
+
+$(document).ready(function() {
+  $(".scroll-link").on("click", function(event) {
+    event.preventDefault();
+    var target = $(this).attr("#secao00");
+    $("html, body").animate({
+      scrollTop: $(target).offset().top
+    }, 1000);
+  })
+})
